@@ -3,6 +3,7 @@ package hu.bme.mit.train.sensor;
 import hu.bme.mit.train.interfaces.TrainController;
 import hu.bme.mit.train.interfaces.TrainSensor;
 import hu.bme.mit.train.interfaces.TrainUser;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -52,6 +53,7 @@ public class TrainSensorTest {
         sensor.overrideSpeedLimit(0);
         when(mockedTrainController.getReferenceSpeed()).thenReturn(200);
         sensor.overrideSpeedLimit(100);
+        Assert.assertEquals(100, sensor.getSpeedLimit());
         Mockito.verify(mockedTrainUser, never()).setAlarmState(true);
     }
 }
