@@ -26,14 +26,14 @@ public class TrainSensorTest {
     @Test
     @DisplayName("Setting a negative value")
     public void GoingUnderAbsoluteLimit() {
-        sensor.overrideSpeedLimit(-50);
+        sensor.overrideSpeedLimit(-1);
         Mockito.verify(mockedTrainUser, times(1)).setAlarmState(true);
     }
 
     @Test
     @DisplayName("Setting a value over 500")
     public void GoingOverAbsoluteLimit() {
-        sensor.overrideSpeedLimit(9001);
+        sensor.overrideSpeedLimit(501);
         Mockito.verify(mockedTrainUser, times(1)).setAlarmState(true);
     }
 
